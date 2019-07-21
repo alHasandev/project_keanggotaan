@@ -52,72 +52,38 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pendaftaran Anggota AWP</title>
-</head>
-
-<body>
-  <header>
-    <h1>DTS Kelompok 7</h1>
-    <nav>
-      <ul class="nav-left">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="posisi_pengguna.php">Posisi Pengguna</a></li>
-        <li><a href="tambah_pengguna.php">Tambah Pengguna</a></li>
-        <li><a href="admin.php">Daftar Admin</a></li>
-        <li><a href="ketua.php">Daftar Ketua</a></li>
-        <li><a href="sekretariat.php">Daftar Sekretariat</a></li>
-        <li><a href="anggota.php">Daftar Anggota</a></li>
-      </ul>
-      <ul class="nav-right">
-        <li><a href="../profile.php">Admin</a></li>
-        <li><a href="../">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- bagian html header -->
+<?php require_once 'header.php' ?>
+<!-- bagian html header -->
 
 
-  <div class="container">
-    <form action="edit_pengguna.php" method="POST" class="tambah_data">
-      <h1>Edit Pengguna</h1>
-      <div class="form-group">
-        <label for="nik">NIK</label>
-        <input type="number" name="nik" id="nik" value="<?= $data['nik'] ?>" readonly>
-      </div>
-      <div class="form-group">
-        <label for="nama">Nama Lengkap</label>
-        <input type="text" name="nama" id="nama" value="<?= $data['nama'] ?>">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="<?= $data['email'] ?>">
-      </div>
-      <div class="form-group">
-        <label for="alamat">Alamat</label>
-        <input type="text" name="alamat" id="alamat" value="<?= $data['alamat'] ?>">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-      </div>
-      <div class="form-group">
-        <button type="submit" name="submit">Edit Pengguna</button>
-      </div>
-    </form>
-  </div>
-  <!-- bagian html container -->
+<div class="container py-3" style="min-height: 83.1vh">
+  <form action="edit_pengguna.php" method="POST" class="mx-auto px-4 py-5 rounded shadow-sm" style="max-width: 500px">
+    <h2 class="mb-3">Edit Pengguna</h2>
+    <div class="form-group">
+      <label for="nik">NIK</label>
+      <input class="form-control" type="number" name="nik" id="nik" value="<?= $data['nik'] ?>" readonly>
+    </div>
+    <div class="form-group">
+      <label for="nama">Nama Lengkap</label>
+      <input class="form-control" type="text" name="nama" id="nama" value="<?= $data['nama'] ?>">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control" type="email" name="email" id="email" value="<?= $data['email'] ?>">
+    </div>
+    <div class="form-group">
+      <label for="alamat">Alamat</label>
+      <input class="form-control" type="text" name="alamat" id="alamat" value="<?= $data['alamat'] ?>">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" type="password" name="password" id="password">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" name="submit">Edit Pengguna</button>
+    </div>
+  </form>
+</div>
+<!-- bagian html container -->
 
-  <footer>
-    <p>DTS Kelompok 7 &copy; 2019</p>
-  </footer>
-  <!-- bagian html footer -->
-</body>
-
-</html>
+<?php require_once 'footer.php' ?>

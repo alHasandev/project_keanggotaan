@@ -26,46 +26,21 @@ function selected($param1, $param2)
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php require_once 'header.php' ?>
+<!-- bagian html header -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dashboard Admin</title>
-</head>
-
-<body>
-  <header>
-    <h1>DTS Kelompok 7</h1>
-    <nav>
-      <ul class="nav-left">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="posisi_pengguna.php">Posisi Pengguna</a></li>
-        <li><a href="tambah_pengguna.php">Tambah Pengguna</a></li>
-        <li><a href="admin.php">Daftar Admin</a></li>
-        <li><a href="ketua.php">Daftar Ketua</a></li>
-        <li><a href="sekretariat.php">Daftar Sekretariat</a></li>
-        <li><a href="anggota.php">Daftar Anggota</a></li>
-      </ul>
-      <ul class="nav-right">
-        <li><a href="../profile.php">Admin</a></li>
-        <li><a href="../">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- bagian html header -->
-
-  <div class="container">
-    <h1>Posisi Pengguna di SIMAWI</h1>
-    <table border="1">
+<div class="container py-3" style="min-height: 83.1vh">
+  <h1>Posisi Pengguna di SIMAWPI</h1>
+  <table class="table table-striped table-bordered my-3">
+    <thead>
       <tr>
         <th>No</th>
         <th>Nama</th>
         <th>Email</th>
         <th>Posisi</th>
       </tr>
+    </thead>
+    <tbody>
       <?php $no = 1; ?>
       <?php while ($data = $pengguna->fetch_assoc()) { ?>
         <tr>
@@ -73,7 +48,7 @@ function selected($param1, $param2)
           <td><?= $data['nama'] ?></td>
           <td><?= $data['email'] ?></td>
           <td>
-            <select id="posisi" onchange="location.href = this.value">
+            <select class="form-control-sm" id="posisi" onchange="location.href = this.value">
               <option value="delete_posisi.php?id=<?= $data['nik'] ?>" <?= selected($data['id_posisi'], '0') ?>>---</option>
               <?php foreach ($posisi as $ps) : ?>
                 <option value="update_posisi.php?id=<?= $data['nik'] ?>&posisi=<?= $ps['id_posisi'] ?>" <?= selected($data['id_posisi'], $ps['id_posisi']) ?>><?= $ps['nama_posisi'] ?></option>
@@ -83,16 +58,12 @@ function selected($param1, $param2)
         </tr>
         <?php $no++; ?>
       <?php } ?>
-    </table>
+    </tbody>
+  </table>
 
-    <h3>Total: <?= $total ?></h3>
-  </div>
-  <!-- bagian html container -->
+  <h4>Total: <?= $total ?></h4>
+</div>
+<!-- bagian html container -->
 
-  <footer>
-    <p>DTS Kelompok 7 &copy; 2019</p>
-  </footer>
-  <!-- bagian html footer -->
-</body>
-
-</html>
+<?php require_once 'footer.php' ?>
+<!-- bagian html footer -->
