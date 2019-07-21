@@ -53,6 +53,7 @@ if (isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
 </head>
 
 <body>
@@ -61,15 +62,15 @@ if (isset($_POST['submit'])) {
       <h1>Please Login</h1>
       <div class="form-group">
         <label for="nik">NIK</label>
-        <input type="number" name="nik" id="nik">
+        <input type="number" name="nik" id="nik" class="form-control">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" class="form-control">
       </div>
       <div class="form-group">
         <label for="id_posisi">Login Sebagai</label>
-        <select name="id_posisi" id="id_posisi">
+        <select name="id_posisi" id="id_posisi" class="form-control">
           <option value="1">Admin</option>
           <option value="2">Ketua</option>
           <option value="3">Sekretariat</option>
@@ -77,11 +78,13 @@ if (isset($_POST['submit'])) {
         </select>
       </div>
       <div class="form-group">
-        <button type="submit" name="submit">LOGIN</button>
-        <button><a href="./anggota/daftar.php">DAFTAR BARU</a></button>
+        <button type="submit" name="submit" class="btn btn-primary">LOGIN</button >
+        <button class="btn btn-primary"><ahref="./anggota/daftar.php">DAFTAR BARU</a></button>
       </div>
     </form>
   </div>
+   <script src="js/jquery-3.3.1.min.js"></script>
+   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

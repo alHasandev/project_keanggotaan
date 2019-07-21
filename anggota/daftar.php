@@ -55,73 +55,93 @@ if (isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pendaftaran Anggota AWP</title>
+  <link rel="stylesheet" href="../style/bootstrap.min.css">
 </head>
 
 <body>
+  <div class="container">
+  <h1>DTS Kelompok 7</h1>
   <header>
-    <h1>DTS Kelompok 7</h1>
-    <nav>
-      <ul class="nav-left">
-        <li><a href="../">Home</a></li>
-      </ul>
-      <ul class="nav-right">
-        <li><a href="../login.php">Anggota</a></li>
-        <li><a href="../">Logout</a></li>
-      </ul>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="../">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link"  href="../login.php">Anggota <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"  href="../">Logout <span class="sr-only">(current)</span></a>
+      </li>
+
+    
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+    
+   
   </header>
   <!-- bagian html header -->
 
   <div class="container">
     <form action="" method="POST" class="register">
-      <h1>Daftar Sebagai Anggota AWP</h1>
+      <h5>Daftar Sebagai Anggota AWP:</h5>
       <div class="form-group">
         <label for="nik">NIK</label>
-        <input type="number" name="nik" id="nik">
+        <input type="number" name="nik" id="nik" class="form-control">
       </div>
       <div class="form-group">
         <label for="nama">Nama Lengkap</label>
-        <input type="text" name="nama" id="nama">
+        <input type="text" name="nama" id="nama" class="form-control">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" class="form-control">
       </div>
       <div class="form-group">
         <label for="alamat">Alamat</label>
-        <input type="text" name="alamat" id="alamat">
+        <input type="text" name="alamat" id="alamat" class="form-control">
       </div>
       <div class="form-group">
         <label for="bidang_keahlian">Bidang Keahlian</label>
-        <input type="text" name="bidang_keahlian" id="bidang_keahlian">
+        <input type="text" name="bidang_keahlian" id="bidang_keahlian" class="form-control">
       </div>
       <div class="form-group">
         <label for="riwayat_pelatihan">Riwayat Pelatihan</label>
-        <input type="text" name="riwayat_pelatihan" id="riwayat_pelatihan">
+        <input type="text" name="riwayat_pelatihan" id="riwayat_pelatihan" class="form-control">
       </div>
       <div class="form-group">
         <label for="sertifikat_dimiliki">sertifikat_dimiliki</label>
-        <input type="text" name="sertifikat_dimiliki" id="sertifikat_dimiliki">
+        <input type="text" name="sertifikat_dimiliki" id="sertifikat_dimiliki" class="form-control">
       </div>
       <div class="form-group">
         <label for="riwayat_project">Riwayat Project</label>
-        <input type="text" name="riwayat_project" id="riwayat_project">
+        <input type="text" name="riwayat_project" id="riwayat_project" class="form-control">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" class="form-control">
       </div>
       <div class="form-group">
-        <button type="submit" name="submit">Kirim Permintaan Gabung</button>
+        <button type="submit" name="submit" class="btn btn-primary">Kirim Permintaan Gabung</button>
       </div>
     </form>
-  </div>
+  
   <!-- bagian html container -->
 
   <footer>
     <p>DTS Kelompok 7 &copy; 2019</p>
   </footer>
+  </div>
   <!-- bagian html footer -->
 </body>
-
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </html>
