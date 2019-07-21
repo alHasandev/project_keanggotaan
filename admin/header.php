@@ -33,11 +33,11 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Data Anggota
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="admin.php">Data Admin</a>
-              <a class="dropdown-item" href="ketua.php">Data Ketua</a>
-              <a class="dropdown-item" href="sekretariat.php">Data Sekretariat</a>
-              <a class="dropdown-item" href="anggota.php">Data Anggota</a>
+            <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item text-light" href="admin.php" onmouseover="style.backgroundColor='#007BFF';">Data Admin</a>
+              <a class="dropdown-item text-light" href="ketua.php" onmouseover="style.backgroundColor='#007BFF';">Data Ketua</a>
+              <a class="dropdown-item text-light" href="sekretariat.php" onmouseover="style.backgroundColor='#007BFF';">Data Sekretariat</a>
+              <a class="dropdown-item text-light" href="anggota.php" onmouseover="style.backgroundColor='#007BFF';">Data Anggota</a>
             </div>
           </li>
         </ul>
