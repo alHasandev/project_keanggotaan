@@ -6,7 +6,7 @@ session_start();
 require_once '../config/helper.php';
 
 // cek hak akses pengguna
-cekPengguna($_SESSION['pengguna'], 'ketua');
+cekPengguna($_SESSION['pengguna'], 'admin');
 
 ?>
 
