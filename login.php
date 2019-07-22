@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
           'id_posisi' => 0
         ];
 
-        header("Location: anggota/index.php?status=belum_diapprove");
+        header("Location: login.php?status=belum_diapprove");
       } else {
         header('Location: login.php');
       }
@@ -69,7 +69,25 @@ if (isset($_POST['submit'])) {
 
 <body>
   <div class="container">
-    <form action="" method="POST" class="login">
+    <?php if (isset($_GET['status'])) : ?>
+      <?php if ($_GET['status'] == 'belum_diapprove') : ?>
+        <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
+          <strong>Menunggu Persetujuan!</strong> Harap bersabar, permintaan keanggotaan anda sedang menunggu persetujuan Sekretariat.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php elseif ($_GET['status'] == 'berhasil') : ?>
+        <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
+          <strong>Pendaftaran Berhasil!</strong> Permintaan bergabung anda telah terkirim, harap menunggu konfirmasi dari Sekretariat.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php endif; ?>
+
+    <?php endif; ?>
+    <form action="" method="POST" class="py-5 px-4 mx-auto my-3 shadow-sm" style="max-width: 600px">
       <h1>Please Login</h1>
       <div class="form-group">
         <label for="nik">NIK</label>
@@ -89,13 +107,14 @@ if (isset($_POST['submit'])) {
         </select>
       </div>
       <div class="form-group">
+        <p>belum punya akun ? <a href="./anggota/daftar.php">Daftar Baru</a></p>
+        <a href="./" class="btn btn-secondary">KEMBALI</a>
         <button type="submit" name="submit" class="btn btn-primary">LOGIN</button>
-        <button class="btn btn-primary"><a href="./anggota/daftar.php" class="text-light">DAFTAR BARU</a></button>
       </div>
     </form>
   </div>
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

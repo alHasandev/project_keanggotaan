@@ -1,84 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require_once 'header.php' ?>
+<!-- bagian html header -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="../style/bootstrap.min.css">
-  <title>Profile Anggota</title>
-</head>
+<?php
 
-<body>
-  <header>
+// masukkan file koneksi.php
+require_once '../config/koneksi.php';
 
-    <nav>
-       <div class="container">
-  <h1>DTS Kelompok 7</h1>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="../">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+$pengguna = $_SESSION['pengguna'];
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link"  href="../login.php">Anggota <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link"  href="#">Portofolio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link"  href="../">Logout <span class="sr-only">(current)</span></a>
-      </li>
+// siapkan query untuk tampil pengguna + portofolionya
+$query = "SELECT p.nik, p.nama, p.email, prt.bidang_keahlian, prt.riwayat_pelatihan, prt.sertifikat_dimiliki, prt.riwayat_project FROM pengguna p INNER JOIN portofolio prt ON p.nik = prt.nik WHERE p.nik = '$pengguna[nik]'";
 
-    
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  
-</nav>
-  </header>
-  <!-- bagian html header -->
+// tampung hasil query
+$hasil = $db->query($query);
+
+// tampung data dalam bentuk array associative
+$data = $hasil->fetch_assoc();
+
+?>
+
 <br>
-  
-    <div class="jumbotron">
-  <h1 class="display-4">Portofolio</h1>
-  <hr>
-  <p class="lead">
-  <div class="row">
-          <span class="label"> </span>
-          <span class="data">Misal Frontend Web Dev</span>
-          </div>
-          <div class="row">
-          <span class="label">Riwayat Pelatihan: </span>
-          <span class="data">Digitalent VSGA JWD Poliban 2019</span>
-          </div>
-          <div class="row">
-          <span class="label">Sertifikat Dimiliki: </span>
-          <span class="data">LSP Junior Web Developer</span>
-          </div>
-          <div class="row">
-          <span class="label">Riwayat Project: </span>
-          <span class="data">SIMAWI</span>
-          </div>
-      </p>
-  <hr class="my-4">
-  <p></p>
-  <a class="btn btn-primary btn-lg" href="portofolio_edit.php" role="button">Edit Portofolio</a>
+<div class="container">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Portofolio Saya</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row my-3">
+          <span class="col">Nama Lengkap</span>
+          <span class="col"><?= $data['nama'] ?></span>
+        </div>
+        <hr>
+        <div class="row my-3">
+          <span class="col">Email</span>
+          <span class="col"><?= $data['email'] ?></span>
+        </div>
+        <hr>
+        <div class="row my-3">
+          <span class="col">Bidang Keahlian</span>
+          <span class="col"><?= $data['bidang_keahlian'] ?></span>
+        </div>
+        <hr>
+        <div class="row my-3">
+          <span class="col">Riwayat Pelatihan</span>
+          <span class="col"><?= $data['riwayat_pelatihan'] ?></span>
+        </div>
+        <hr>
+        <div class="row my-3">
+          <span class="col">Sertifikat Dimiliki</span>
+          <span class="col"><?= $data['sertifikat_dimiliki'] ?></span>
+        </div>
+        <hr>
+        <div class="row my-3">
+          <span class="col">Riwayat Project</span>
+          <span class="col"><?= $data['riwayat_project'] ?></span>
+        </div>
+        <hr>
+      </div>
+      <div class="modal-footer">
+        <a href="portofolio_edit.php" class="btn btn-primary">EDIT PORTOFOLIO</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-  <footer>
-    <p>DTS Kelompok 7 &copy; 2019</p>
-  </footer>
-  <!-- bagian html footer -->
-
-     <script src="js/jquery-3.3.1.min.js"></script>
-     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+<?php require_once 'footer.php' ?>

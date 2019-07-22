@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
   // jalankan dan cek query
   if ($db->query($queryLogin)) {
     if ($db->query($queryPengguna) && $db->query($queryPortofolio))
-      header('Location: ../login.php');
+      header('Location: ../login.php?status=berhasil');
     else
       header('Location: daftar.php');
   } else
@@ -59,40 +59,13 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-  <div class="container">
-  <h1>DTS Kelompok 7</h1>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="../">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link"  href="../login.php">Anggota <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link"  href="../">Logout <span class="sr-only">(current)</span></a>
-      </li>
-
-    
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-    
-   
-  </header>
   <!-- bagian html header -->
 
   <div class="container">
-    <form action="" method="POST" class="register">
-      <h5>Daftar Sebagai Anggota AWP:</h5>
+    <form action="" method="POST" class="py-5 px-4 mx-auto my-3 shadow-sm" style="max-width: 600px">
+      <h3 class="mb-3">Daftar Sebagai Anggota AWP</h3>
+      <hr>
       <div class="form-group">
         <label for="nik">NIK</label>
         <input type="number" name="nik" id="nik" class="form-control">
@@ -130,18 +103,20 @@ if (isset($_POST['submit'])) {
         <input type="password" name="password" id="password" class="form-control">
       </div>
       <div class="form-group">
+        <a href="../" class="btn btn-secondary">Kembali</a>
         <button type="submit" name="submit" class="btn btn-primary">Kirim Permintaan Gabung</button>
       </div>
     </form>
-  
-  <!-- bagian html container -->
 
-  <footer>
-    <p>DTS Kelompok 7 &copy; 2019</p>
-  </footer>
+    <!-- bagian html container -->
+
+    <footer>
+      <p class="text-center">DTS Kelompok 7 &copy; 2019</p>
+    </footer>
   </div>
   <!-- bagian html footer -->
 </body>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </html>

@@ -37,37 +37,35 @@ $data = $hasil->fetch_assoc();
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Profil <?= $pengguna['nama_posisi'] ?></h5>
+          <h4 class="modal-title">Profil <?= $pengguna['nama_posisi'] ?></h5>
 
         </div>
         <div class="modal-body">
-          <div class="container">
-            <div class="row my-3">
-              <span class="col">NIK</span>
-              <span class="col"><?= $data['nik'] ?></span>
-            </div>
-            <hr>
-            <div class="row my-3">
-              <span class="col">nama</span>
-              <span class="col"><?= $data['nama'] ?></span>
-            </div>
-            <hr>
-            <div class="row my-3">
-              <span class="col">email</span>
-              <span class="col"><?= $data['email'] ?></span>
-            </div>
-            <hr>
-            <div class="row my-3">
-              <span class="col">alamat</span>
-              <span class="col"><?= $data['alamat'] ?></span>
-            </div>
-            <hr>
-            <div class="row my-3">
-              <span class="col">posisi</span>
-              <span class="col"><?= $pengguna['nama_posisi'] ?></span>
-            </div>
-            <hr>
+          <div class="row my-3 pl-3">
+            <span class="col">NIK</span>
+            <span class="col"><?= $data['nik'] ?></span>
           </div>
+          <hr>
+          <div class="row my-3 pl-3">
+            <span class="col">nama</span>
+            <span class="col"><?= $data['nama'] ?></span>
+          </div>
+          <hr>
+          <div class="row my-3 pl-3">
+            <span class="col">email</span>
+            <span class="col"><?= $data['email'] ?></span>
+          </div>
+          <hr>
+          <div class="row my-3 pl-3">
+            <span class="col">alamat</span>
+            <span class="col"><?= $data['alamat'] ?></span>
+          </div>
+          <hr>
+          <div class="row my-3 pl-3">
+            <span class="col">posisi</span>
+            <span class="col"><?= $pengguna['nama_posisi'] ?></span>
+          </div>
+          <hr>
         </div>
         <div class="modal-footer">
           <a href="<?= $pengguna['nama_posisi'] ?>" class="btn btn-secondary">KEMBALI</a>
