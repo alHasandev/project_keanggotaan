@@ -1,3 +1,14 @@
+<?php
+
+// mulai session
+session_start();
+
+require_once '../config/helper.php';
+
+cekPengguna($_SESSION['pengguna'], 'admin');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +54,7 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item"><a href="../profile.php" class="nav-link">Admin</a></li>
-          <li class="nav-item"><a href="../" class="nav-link">Logout</a></li>
+          <li class="nav-item"><a href="../logout.php" class="nav-link">Logout</a></li>
         </ul>
       </div>
     </div>

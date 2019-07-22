@@ -1,3 +1,26 @@
+<?php
+
+// mulai session
+session_start();
+
+require_once './config/helper.php';
+
+$pengguna = $_SESSION['pengguna'];
+
+// masukkan file koneksi.php
+require_once 'config/koneksi.php';
+
+// buat query tampil profile
+$query = "SELECT * FROM pengguna WHERE nik = '$pengguna[nik]'";
+
+// tampung hasil query
+$hasil = $db->query($query);
+
+// buat hasil query dalam bentuk array associative
+$data = $hasil->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,34 +34,50 @@
 
 <body>
   <div class="container">
-    <div class="profile">
-      <div class="jumbotron">
-      <h1>Profile Saya</h1>
-      
-        <hr>
-        <span class="label">NIK: </span>
-        <span class="data">1663xxxxxx</span>
-         <br>
-        <span class="label">Nama Lengkap: </span>
-        <span class="data">Kelompok 7</span>
-        <br> 
-        <span class="label">Email: </span>
-        <span class="data">kelompok7@dts.com</span>
-        <br>
-        <span class="label">alamat: </span>
-        <span class="data">Jl. Padat Orang</span>
-        <br>
-        <span class="label">Posisi: </span>
-        <span class="data">Anggota</span>
-      
-  </div>
-</div>
-      <div class="tombol-edit" >
-        <a href="profile_edit.php" class="btn btn-primary">EDIT PROFILE</a>
-    </div>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Profil <?= $pengguna['nama_posisi'] ?></h5>
+
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row my-3">
+              <span class="col">NIK</span>
+              <span class="col"><?= $data['nik'] ?></span>
+            </div>
+            <hr>
+            <div class="row my-3">
+              <span class="col">nama</span>
+              <span class="col"><?= $data['nama'] ?></span>
+            </div>
+            <hr>
+            <div class="row my-3">
+              <span class="col">email</span>
+              <span class="col"><?= $data['email'] ?></span>
+            </div>
+            <hr>
+            <div class="row my-3">
+              <span class="col">alamat</span>
+              <span class="col"><?= $data['alamat'] ?></span>
+            </div>
+            <hr>
+            <div class="row my-3">
+              <span class="col">posisi</span>
+              <span class="col"><?= $pengguna['nama_posisi'] ?></span>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="<?= $pengguna['nama_posisi'] ?>" class="btn btn-secondary">KEMBALI</a>
+          <a href="profile_edit.php" class="btn btn-primary">EDIT PROFILE</a>
+        </div>
       </div>
-   <script src="js/jquery-3.3.1.min.js"></script>
-   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    </div>
+  </div>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

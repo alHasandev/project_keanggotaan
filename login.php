@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if (isset($_POST['submit'])) {
   require_once 'config/koneksi.php';
 
@@ -27,10 +29,19 @@ if (isset($_POST['submit'])) {
       // die(print_r($posisi->fetch_assoc()));
       if ($posisi->num_rows) {
         $data = $posisi->fetch_assoc();
+        $_SESSION['pengguna'] = [
+          'nik' => $data['nik'],
+          'nama_posisi' => $data['nama_posisi']
+        ];
 
         header("Location: $data[nama_posisi]");
       } elseif ($id_posisi == 4) {
         // cek apakah posisi sebagai anggota dan belum di approve oleh sekretariat
+        $_SESSION['pengguna'] = [
+          'nik' => $data['nik'],
+          'id_posisi' => 0
+        ];
+
         header("Location: anggota/index.php?status=belum_diapprove");
       } else {
         header('Location: login.php');
@@ -53,7 +64,7 @@ if (isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login</title>
-    <link rel="stylesheet" href="style/bootstrap.min.css">
+  <link rel="stylesheet" href="style/bootstrap.min.css">
 </head>
 
 <body>
@@ -78,13 +89,13 @@ if (isset($_POST['submit'])) {
         </select>
       </div>
       <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-primary">LOGIN</button >
-        <button class="btn btn-primary"><ahref="./anggota/daftar.php">DAFTAR BARU</a></button>
+        <button type="submit" name="submit" class="btn btn-primary">LOGIN</button>
+        <button class="btn btn-primary"><a href="./anggota/daftar.php" class="text-light">DAFTAR BARU</a></button>
       </div>
     </form>
   </div>
-   <script src="js/jquery-3.3.1.min.js"></script>
-   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
